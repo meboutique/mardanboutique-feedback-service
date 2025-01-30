@@ -1,0 +1,165 @@
+/* Общие стили */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    height: 100%; /* Занимаем всю высоту окна */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    min-height: 100vh; /* Минимальная высота - весь viewport */
+    text-align: center;
+    background-color: #123055; /* Цвет фона по умолчанию */
+    position: relative; /* Для позиционирования фонового изображения */
+    overflow-x: hidden; /* Предотвращает горизонтальную прокрутку */
+}
+
+/* Стили для ПЕРВОГО экрана с затемненным фоном */
+body.first-screen {
+    background-color: transparent; /* Убираем цветной фон */
+}
+
+.background-image {
+    position: fixed; /* Используем fixed, чтобы изображение не прокручивалось */
+    top: 0;
+    left: 0;
+    width: 100%; /* Или 100vw, разницы в данном случае нет */
+    height: 100%; /* Или 100vh */
+    background: url("./assets/background.png") no-repeat center center;
+    background-size: cover;
+    filter: brightness(0.5);
+    z-index: -1;
+}
+
+/* Общий контейнер (frame) */
+.frame {
+    padding: 20px;
+    color: #fff;
+    max-width: 800px; /* Максимальная ширина */
+    width: 90%; /* Ширина на мобильных */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+/* Логотип */
+.logo {
+    width: 300px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+/* Кнопки */
+.next-btn,
+.mardan-dropdown-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto; /* Упрощенный margin для центрирования */
+    width: fit-content; /* Кнопки по размеру содержимого */
+}
+
+.next-btn:hover,
+.mardan-dropdown-button:hover {
+    background-color: #eee; /* Более заметное изменение при наведении */
+}
+
+/* Dropdown стили */
+.mardan-dropdown {
+    position: relative;
+    display: block; /* Занимает всю ширину контейнера */
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.mardan-dropdown-button {
+    width: 100%;
+}
+
+.mardan-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.mardan-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.mardan-dropdown-item:hover {
+    background-color: #f2f2f2;
+}
+
+/* Стили для звездного рейтинга */
+.stars {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+    font-size: 2em;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+.star {
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star.active,
+.star:hover {
+    color: #f1c40f;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #f1c40f;
+}
+
+/* Текстовые поля и текстовые области */
+input[type="text"],
+input[type="tel"],
+textarea {
+    width: calc(100% - 22px);
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Финальный экран */
+#frame-1 img {
+    width: 80px;
+    margin-bottom: 20px;
+    display: block;
+    margin: 20px auto;
+}
